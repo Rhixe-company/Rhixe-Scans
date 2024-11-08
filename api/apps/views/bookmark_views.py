@@ -74,21 +74,14 @@ def loadbookmarks(request):
         "items": comics,
     }
 
-    html = render_block_to_string("partials/bookmarks.html", "comicbookmark", context)
-    response = HttpResponse(html)
-    return response
+    if request.htmx:
 
-
-def countbookmarks(request):
-    comics = UsersItem.objects.prefetch_related("comic").filter(user=request.user)
-
-    context = {
-        "items": comics,
-    }
-
-    html = render_block_to_string("partials/book_count.html", "comicbookmark", context)
-    response = HttpResponse(html)
-    return response
+        html = render_block_to_string(
+            "partials/bookmarks.html", "comicbookmark", context
+        )
+        response = HttpResponse(html)
+        return response
+    return context
 
 
 @require_http_methods(["POST", "GET"])

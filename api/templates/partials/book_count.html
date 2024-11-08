@@ -1,9 +1,0 @@
-{% load static i18n %}
-
-{% block comicbookmark %}
-  <p hx-get='{% url "bookmarks:count" %}'
-     hx-trigger='comic_bookmark    from:body'
-     hx-target="this"
-     hx-swap="outerHTML"
-     class="text-center text-[13px] text-[#A2A2A2]">Followed by {{ items.count }} people</p>
-{% endblock comicbookmark %}

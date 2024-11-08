@@ -223,7 +223,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "api.users.context_processors.allauth_settings",
                 "api.users.context_processors.avatar",
-                # "api.apps.views.bookmark_views.loadbookmarks",
+                "api.apps.views.bookmark_views.loadbookmarks",
             ],
         },
     },

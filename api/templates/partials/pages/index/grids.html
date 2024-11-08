@@ -1,14 +1,13 @@
 {% load static i18n %}
 
-<div class="mb-1 mt-5 text-white md:mb-5">
+<div class="mb-1 mt-5 text-white md:mb-5" id='indexapp'>
   <div class="font-500 relative flex justify-between border-b-[1px] border-[#312f40] bg-[#222222] px-[15px] py-[8px] align-baseline">
     <h3 class="m-0 text-[15px] font-semibold leading-5 text-white">Latest Updates</h3>
     <a href='{% url "comics" %}'
        class="rounded-[3px] bg-themecolor p-1 text-[8.5px] uppercase text-white hover:cursor-pointer">View all</a>
   </div>
-  <div id='indexapp'
-       class="grid grid-cols-1 grid-rows-1 bg-[#222222] p-3 pb-0 sm:grid-cols-2">
-    {% for item in items %}
+  <div class="grid grid-cols-1 grid-rows-1 bg-[#222222] p-3 pb-0 sm:grid-cols-2">
+    {% for item in comics %}
       {% include "partials/pages/index/grid_item.html" %}
     {% empty %}
       <div class="ml-3 text-xs text-red-400">
@@ -16,5 +15,5 @@
       </div>
     {% endfor %}
   </div>
-  {% include "partials/pages/index/pagination.html" with items=comics %}
+  {% include "partials/pages/index/pagination.html" %}
 </div>

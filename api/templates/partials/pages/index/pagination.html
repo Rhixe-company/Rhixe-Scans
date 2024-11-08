@@ -2,10 +2,11 @@
 
 <div class="flex items-center justify-center bg-[#222222] py-[15px]">
   <div class="flex items-center justify-center bg-[#222222] py-[15px]">
-    {% if items.has_previous %}
+    {% if comics.has_previous %}
       <button type='button'
-              hx-get='?page={{ items.previous_page_number }}'
+              hx-get='?page={{ comics.previous_page_number }}'
               hx-target='#indexapp'
+              hx-push-url='true'
               style="pointer-events:auto"
               class="flex items-center bg-themecolor  text-white px-5 py-1.5 rounded-[2px] text-[13px] w-[110px] cursor-pointer text-center mr-1">
         <svg width="16"
@@ -32,10 +33,11 @@
         {% translate "Previous" %}
       </button>
     {% endif %}
-    {% if items.has_next %}
+    {% if comics.has_next %}
       <button type='button'
-              hx-get='?page={{ items.next_page_number }}'
+              hx-get='?page={{ comics.next_page_number }}'
               hx-target='#indexapp'
+              hx-push-url='true'
               class="flex w-[110px] items-center rounded-[2px] bg-themecolor px-8 py-1.5 text-center text-[13px] text-white"
               style="pointer-events: auto">
         {% translate "Next" %}

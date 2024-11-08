@@ -49,7 +49,20 @@
           <div class="space-y-1.5">
             <div>
               {% if request.user.is_authenticated %}
-                {% if not fav %}
+                {% if  request.user in comic.users.all %}
+                  <button class="w-full"
+                          hx-post="{% url 'bookmarks:delete' comic.id %}"
+                          hx-target="this"
+                          hx-swap="outerHTML"
+                          hx-confirm="Are you sure you want to remove {{ comic.title }} from your bookmarks">
+                    <div class="ring-offset-background focus-visible:ring-ring flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-[#BE3329] px-4 py-2 text-[13px] font-medium text-white transition-colors duration-500 hover:cursor-pointer hover:bg-[#BE3329] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                      <img src="{% static 'svg/bookmark.svg' %}"
+                           class="mr-0.5 size-[13px]"
+                           alt="bookmark button" />
+                      Bookmarked
+                    </div>
+                  </button>
+                {% else %}
                   <button class="w-full"
                           hx-post="{% url 'bookmarks:add' %}"
                           hx-target="this"
@@ -69,19 +82,6 @@
                         <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
                       </svg>
                       Bookmark
-                    </div>
-                  </button>
-                {% else %}
-                  <button class="w-full"
-                          hx-post="{% url 'bookmarks:delete' comic.id %}"
-                          hx-target="this"
-                          hx-swap="outerHTML"
-                          hx-confirm="Are you sure you want to remove {{ comic.title }} from your bookmarks">
-                    <div class="ring-offset-background focus-visible:ring-ring flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-[#BE3329] px-4 py-2 text-[13px] font-medium text-white transition-colors duration-500 hover:cursor-pointer hover:bg-[#BE3329] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-                      <img src="{% static 'svg/bookmark.svg' %}"
-                           class="mr-0.5 size-[13px]"
-                           alt="bookmark button" />
-                      Bookmarked
                     </div>
                   </button>
                 {% endif %}
@@ -105,11 +105,7 @@
                 </a>
               {% endif %}
             </div>
-            <p hx-get='{% url "bookmarks:count" %}'
-               hx-trigger='every 5s'
-               hx-target="this"
-               hx-swap="outerHTML"
-               class="text-center text-[13px] text-[#A2A2A2]">Followed by {{ items.count }} people</p>
+            <p class="text-center text-[13px] text-[#A2A2A2]">Followed by {{ comic.users.count }} people</p>
             <div class="flex items-center justify-between rounded-[3px] bg-[#343434] px-2 py-1">
               <div class="rr--group rr--dir-x rr--space-sm"
                    role="img"

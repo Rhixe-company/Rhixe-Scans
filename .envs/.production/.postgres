@@ -1,0 +1,8 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=rhixe_scans
+POSTGRES_USER=JKTkZMytkTOsKYzlvqMaRELTQwndFZWf
+POSTGRES_PASSWORD=tzsELNsFmeZPHE4MK4zvXLUf1u0KQryQb9JMEscB9o6ZzZCtzEXDixm1CyDIynh2
+POSTGRES_ENGINE=django.db.backends.postgresql

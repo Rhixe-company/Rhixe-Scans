@@ -15,11 +15,6 @@ urlpatterns = [
         name="load",
     ),
     path(
-        "count/",
-        view=views.countbookmarks,
-        name="count",
-    ),
-    path(
         "add/",
         view=views.add_bookmark,
         name="add",

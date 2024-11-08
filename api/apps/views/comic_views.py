@@ -19,11 +19,14 @@ def comic(request, comic_id):
         .select_related("user", "author", "type", "artist")
         .get(pk=comic_id)
     )
-    fav = bool
-    if request.user.is_authenticated:
-        if UsersItem.objects.filter(comic=comic, user=request.user).exists():
-            fav = True
-    context = {"fav": fav, "comic": comic}
+    # fav = bool
+    # if request.user.is_authenticated:
+    #     if UsersItem.objects.filter(comic=comic, user=request.user).exists():
+    #         fav = True
+    context = {
+        # "fav": fav,
+        "comic": comic
+    }
     return render(request, "comic/detail.html", context)
 
 

@@ -1,0 +1,285 @@
+{
+  "status": "done",
+  "assets": {
+    "/assets/black.webp": {
+      "name": "/assets/black.webp",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\assets\\black.webp",
+      "publicPath": "/static/webpack_bundles//assets/black.webp",
+      "sourceFilename": "api/static/images/svg/black.webp"
+    },
+    "04a5d0467eb9ab4523e7.woff": {
+      "name": "04a5d0467eb9ab4523e7.woff",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\04a5d0467eb9ab4523e7.woff",
+      "publicPath": "/static/webpack_bundles/04a5d0467eb9ab4523e7.woff",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-vietnamese-400-normal.woff"
+    },
+    "0632e95f661cec655e24.woff": {
+      "name": "0632e95f661cec655e24.woff",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\0632e95f661cec655e24.woff",
+      "publicPath": "/static/webpack_bundles/0632e95f661cec655e24.woff",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-greek-ext-400-normal.woff"
+    },
+    "07ed6d5fa32c1d54af0f.ttf": {
+      "name": "07ed6d5fa32c1d54af0f.ttf",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\07ed6d5fa32c1d54af0f.ttf",
+      "publicPath": "/static/webpack_bundles/07ed6d5fa32c1d54af0f.ttf",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"
+    },
+    "0f6cb412603527bda691.ttf": {
+      "name": "0f6cb412603527bda691.ttf",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\0f6cb412603527bda691.ttf",
+      "publicPath": "/static/webpack_bundles/0f6cb412603527bda691.ttf",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf"
+    },
+    "0ff70dcbf135d859ebf3.ttf": {
+      "name": "0ff70dcbf135d859ebf3.ttf",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\0ff70dcbf135d859ebf3.ttf",
+      "publicPath": "/static/webpack_bundles/0ff70dcbf135d859ebf3.ttf",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"
+    },
+    "17117bf2661db5e37c67.woff": {
+      "name": "17117bf2661db5e37c67.woff",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\17117bf2661db5e37c67.woff",
+      "publicPath": "/static/webpack_bundles/17117bf2661db5e37c67.woff",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-greek-400-normal.woff"
+    },
+    "17a6e1aebccdbaa39e78.ttf": {
+      "name": "17a6e1aebccdbaa39e78.ttf",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\17a6e1aebccdbaa39e78.ttf",
+      "publicPath": "/static/webpack_bundles/17a6e1aebccdbaa39e78.ttf",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf"
+    },
+    "2a7a57f95a4f314a9945.woff2": {
+      "name": "2a7a57f95a4f314a9945.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\2a7a57f95a4f314a9945.woff2",
+      "publicPath": "/static/webpack_bundles/2a7a57f95a4f314a9945.woff2",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-greek-ext-400-normal.woff2"
+    },
+    "4ba66187964543dda525.woff": {
+      "name": "4ba66187964543dda525.woff",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\4ba66187964543dda525.woff",
+      "publicPath": "/static/webpack_bundles/4ba66187964543dda525.woff",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-latin-ext-400-normal.woff"
+    },
+    "52a497743ad464bd5589.woff2": {
+      "name": "52a497743ad464bd5589.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\52a497743ad464bd5589.woff2",
+      "publicPath": "/static/webpack_bundles/52a497743ad464bd5589.woff2",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-latin-ext-400-normal.woff2"
+    },
+    "553a6000ba180fa0b0cb.webp": {
+      "name": "553a6000ba180fa0b0cb.webp",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\553a6000ba180fa0b0cb.webp",
+      "publicPath": "/static/webpack_bundles/553a6000ba180fa0b0cb.webp",
+      "sourceFilename": "api/static/images/svg/black.webp"
+    },
+    "6cfec8414be20e2c3426.woff2": {
+      "name": "6cfec8414be20e2c3426.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\6cfec8414be20e2c3426.woff2",
+      "publicPath": "/static/webpack_bundles/6cfec8414be20e2c3426.woff2",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
+    },
+    "810ffcd142e7073e9c24.woff": {
+      "name": "810ffcd142e7073e9c24.woff",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\810ffcd142e7073e9c24.woff",
+      "publicPath": "/static/webpack_bundles/810ffcd142e7073e9c24.woff",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-cyrillic-400-normal.woff"
+    },
+    "93f719f4d62bfa3e748c.woff2": {
+      "name": "93f719f4d62bfa3e748c.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\93f719f4d62bfa3e748c.woff2",
+      "publicPath": "/static/webpack_bundles/93f719f4d62bfa3e748c.woff2",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"
+    },
+    "ba06c9dac31b8ab02776.woff": {
+      "name": "ba06c9dac31b8ab02776.woff",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\ba06c9dac31b8ab02776.woff",
+      "publicPath": "/static/webpack_bundles/ba06c9dac31b8ab02776.woff",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-cyrillic-ext-400-normal.woff"
+    },
+    "bb8d5a145e22822103fb.woff2": {
+      "name": "bb8d5a145e22822103fb.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\bb8d5a145e22822103fb.woff2",
+      "publicPath": "/static/webpack_bundles/bb8d5a145e22822103fb.woff2",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"
+    },
+    "bc3722686635b5f86132.woff2": {
+      "name": "bc3722686635b5f86132.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\bc3722686635b5f86132.woff2",
+      "publicPath": "/static/webpack_bundles/bc3722686635b5f86132.woff2",
+      "sourceFilename": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"
+    },
+    "c695d16a680a5cbebd3d.woff2": {
+      "name": "c695d16a680a5cbebd3d.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\c695d16a680a5cbebd3d.woff2",
+      "publicPath": "/static/webpack_bundles/c695d16a680a5cbebd3d.woff2",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-latin-400-normal.woff2"
+    },
+    "css/project.67d83a1fd4a4237eeda6.css": {
+      "name": "css/project.67d83a1fd4a4237eeda6.css",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\css\\project.67d83a1fd4a4237eeda6.css",
+      "publicPath": "/static/webpack_bundles/css/project.67d83a1fd4a4237eeda6.css"
+    },
+    "css/project.67d83a1fd4a4237eeda6.css.map": {
+      "name": "css/project.67d83a1fd4a4237eeda6.css.map",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\css\\project.67d83a1fd4a4237eeda6.css.map",
+      "publicPath": "/static/webpack_bundles/css/project.67d83a1fd4a4237eeda6.css.map"
+    },
+    "css/vendors.c9c0d89678b3c7e54813.css": {
+      "name": "css/vendors.c9c0d89678b3c7e54813.css",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\css\\vendors.c9c0d89678b3c7e54813.css",
+      "publicPath": "/static/webpack_bundles/css/vendors.c9c0d89678b3c7e54813.css"
+    },
+    "css/vendors.c9c0d89678b3c7e54813.css.map": {
+      "name": "css/vendors.c9c0d89678b3c7e54813.css.map",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\css\\vendors.c9c0d89678b3c7e54813.css.map",
+      "publicPath": "/static/webpack_bundles/css/vendors.c9c0d89678b3c7e54813.css.map"
+    },
+    "d03d9031be4f9fe24a88.woff2": {
+      "name": "d03d9031be4f9fe24a88.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\d03d9031be4f9fe24a88.woff2",
+      "publicPath": "/static/webpack_bundles/d03d9031be4f9fe24a88.woff2",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-vietnamese-400-normal.woff2"
+    },
+    "d68444561f969b0ec505.woff2": {
+      "name": "d68444561f969b0ec505.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\d68444561f969b0ec505.woff2",
+      "publicPath": "/static/webpack_bundles/d68444561f969b0ec505.woff2",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-cyrillic-ext-400-normal.woff2"
+    },
+    "de8a0a32fb5cf7629ed9.woff": {
+      "name": "de8a0a32fb5cf7629ed9.woff",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\de8a0a32fb5cf7629ed9.woff",
+      "publicPath": "/static/webpack_bundles/de8a0a32fb5cf7629ed9.woff",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-latin-400-normal.woff"
+    },
+    "fc6dfdfac47f5b7efb29.woff2": {
+      "name": "fc6dfdfac47f5b7efb29.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\fc6dfdfac47f5b7efb29.woff2",
+      "publicPath": "/static/webpack_bundles/fc6dfdfac47f5b7efb29.woff2",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-greek-400-normal.woff2"
+    },
+    "ff71c63325bee1312092.woff2": {
+      "name": "ff71c63325bee1312092.woff2",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\ff71c63325bee1312092.woff2",
+      "publicPath": "/static/webpack_bundles/ff71c63325bee1312092.woff2",
+      "sourceFilename": "node_modules/@fontsource/fira-sans/files/fira-sans-cyrillic-400-normal.woff2"
+    },
+    "js/project-192bdd0edc3e76d180c4.js": {
+      "name": "js/project-192bdd0edc3e76d180c4.js",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\project-192bdd0edc3e76d180c4.js",
+      "publicPath": "/static/webpack_bundles/js/project-192bdd0edc3e76d180c4.js"
+    },
+    "js/project-192bdd0edc3e76d180c4.js.map": {
+      "name": "js/project-192bdd0edc3e76d180c4.js.map",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\project-192bdd0edc3e76d180c4.js.map",
+      "publicPath": "/static/webpack_bundles/js/project-192bdd0edc3e76d180c4.js.map"
+    },
+    "js/scripts/js/alpine_init.d.ts": {
+      "name": "js/scripts/js/alpine_init.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\alpine_init.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/alpine_init.d.ts"
+    },
+    "js/scripts/js/axios.d.ts": {
+      "name": "js/scripts/js/axios.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\axios.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/axios.d.ts"
+    },
+    "js/scripts/js/backtotop.d.ts": {
+      "name": "js/scripts/js/backtotop.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\backtotop.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/backtotop.d.ts"
+    },
+    "js/scripts/js/chapter.d.ts": {
+      "name": "js/scripts/js/chapter.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\chapter.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/chapter.d.ts"
+    },
+    "js/scripts/js/chapters_form.d.ts": {
+      "name": "js/scripts/js/chapters_form.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\chapters_form.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/chapters_form.d.ts"
+    },
+    "js/scripts/js/ck.d.ts": {
+      "name": "js/scripts/js/ck.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\ck.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/ck.d.ts"
+    },
+    "js/scripts/js/comic.d.ts": {
+      "name": "js/scripts/js/comic.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\comic.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/comic.d.ts"
+    },
+    "js/scripts/js/comics_form.d.ts": {
+      "name": "js/scripts/js/comics_form.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\comics_form.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/comics_form.d.ts"
+    },
+    "js/scripts/js/comics.d.ts": {
+      "name": "js/scripts/js/comics.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\comics.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/comics.d.ts"
+    },
+    "js/scripts/js/dropdown.d.ts": {
+      "name": "js/scripts/js/dropdown.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\dropdown.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/dropdown.d.ts"
+    },
+    "js/scripts/js/htmx_init.d.ts": {
+      "name": "js/scripts/js/htmx_init.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\htmx_init.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/htmx_init.d.ts"
+    },
+    "js/scripts/js/hyper_init.d.ts": {
+      "name": "js/scripts/js/hyper_init.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\hyper_init.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/hyper_init.d.ts"
+    },
+    "js/scripts/js/menu.d.ts": {
+      "name": "js/scripts/js/menu.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\menu.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/menu.d.ts"
+    },
+    "js/scripts/js/modules.d.ts": {
+      "name": "js/scripts/js/modules.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\modules.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/modules.d.ts"
+    },
+    "js/scripts/js/project.d.ts": {
+      "name": "js/scripts/js/project.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\project.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/project.d.ts"
+    },
+    "js/scripts/js/slider.d.ts": {
+      "name": "js/scripts/js/slider.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\slider.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/slider.d.ts"
+    },
+    "js/scripts/js/vendors.d.ts": {
+      "name": "js/scripts/js/vendors.d.ts",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\scripts\\js\\vendors.d.ts",
+      "publicPath": "/static/webpack_bundles/js/scripts/js/vendors.d.ts"
+    },
+    "js/vendors-192bdd0edc3e76d180c4.js": {
+      "name": "js/vendors-192bdd0edc3e76d180c4.js",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\vendors-192bdd0edc3e76d180c4.js",
+      "publicPath": "/static/webpack_bundles/js/vendors-192bdd0edc3e76d180c4.js"
+    },
+    "js/vendors-192bdd0edc3e76d180c4.js.map": {
+      "name": "js/vendors-192bdd0edc3e76d180c4.js.map",
+      "path": "C:\\Users\\BOT\\Desktop\\dev\\Manhwa-new\\dist\\webpack_bundles\\js\\vendors-192bdd0edc3e76d180c4.js.map",
+      "publicPath": "/static/webpack_bundles/js/vendors-192bdd0edc3e76d180c4.js.map"
+    }
+  },
+  "chunks": {
+    "project": [
+      "js/project-192bdd0edc3e76d180c4.js",
+      "css/project.67d83a1fd4a4237eeda6.css"
+    ],
+    "vendors": [
+      "js/vendors-192bdd0edc3e76d180c4.js",
+      "css/vendors.c9c0d89678b3c7e54813.css"
+    ]
+  },
+  "publicPath": "/static/webpack_bundles/"
+}
