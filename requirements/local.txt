@@ -7,7 +7,7 @@ ipdb==0.13.13  # https://github.com/gotcha/ipdb
 # psycopg2-binary
 psycopg[binary,pool]
 # psycopg[c]
-watchfiles==0.21.0  # https://github.com/samuelcolvin/watchfiles
+watchfiles==0.24.0  # https://github.com/samuelcolvin/watchfiles
 
 # Testing
 # ------------------------------------------------------------------------------
