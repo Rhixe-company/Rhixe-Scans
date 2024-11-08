@@ -1,0 +1,190 @@
+{% load static i18n widget_tweaks %}
+
+<div class="grid grid-cols-6 gap-1">
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.title.label }}" class="custom_label">{{ form.title.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.title %}
+      <small class="pl-0.5 text-gray-500">{{ form.title.help_text|safe }}</small>
+      {% if form.title.errors %}<small class="pl-0.5 text-red-500">{{ form.title.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.slug.label }}" class="custom_label">{{ form.slug.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.slug %}
+      <small class="pl-0.5 text-gray-500">{{ form.slug.help_text|safe }}</small>
+      {% if form.slug.errors %}<small class="pl-0.5 text-red-500">{{ form.slug.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.description.label }}" class="custom_label">{{ form.description.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.description %}
+      <small class="pl-0.5 text-gray-500">{{ form.description.help_text|safe }}</small>
+      {% if form.description.errors %}<small class="pl-0.5 text-red-500">{{ form.description.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.rating.label }}" class="custom_label">{{ form.rating.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.rating %}
+      <small class="pl-0.5 text-gray-500">{{ form.rating.help_text|safe }}</small>
+      {% if form.rating.errors %}<small class="pl-0.5 text-red-500">{{ form.rating.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.status.label }}" class="custom_label">{{ form.status.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.status %}
+      <small class="pl-0.5 text-gray-500">{{ form.status.help_text|safe }}</small>
+      {% if form.status.errors %}<small class="pl-0.5 text-red-500">{{ form.status.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.url.label }}" class="custom_label">{{ form.url.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.url %}
+      <small class="pl-0.5 text-gray-500">{{ form.url.help_text|safe }}</small>
+      {% if form.url.errors %}<small class="pl-0.5 text-red-500">{{ form.url.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.spider.label }}" class="custom_label">{{ form.spider.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.spider %}
+      <small class="pl-0.5 text-gray-500">{{ form.spider.help_text|safe }}</small>
+      {% if form.spider.errors %}<small class="pl-0.5 text-red-500">{{ form.spider.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.serialization.label }}" class="custom_label">{{ form.serialization.label }}</label>
+    <div class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="currentColor"
+           aria-hidden="true"
+           data-slot="icon"
+           class="absolute left-3 top-6 transform -translate-y-1/2 size-4  mr-10">
+        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd">
+        </path>
+      </svg>
+      {% render_field form.serialization %}
+      <small class="pl-0.5 text-gray-500">{{ form.serialization.help_text|safe }}</small>
+      {% if form.serialization.errors %}
+        <small class="pl-0.5 text-red-500">{{ form.serialization.errors }}</small>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.numChapters.label }}" class="custom_label">{{ form.numChapters.label }}</label>
+    <div class="relative">
+      {% render_field form.numChapters %}
+      <small class="pl-0.5 text-gray-500">{{ form.numChapters.help_text|safe }}</small>
+      {% if form.numChapters.errors %}<small class="pl-0.5 text-red-500">{{ form.numChapters.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.numItems.label }}" class="custom_label">{{ form.numItems.label }}</label>
+    <div class="relative">
+      {% render_field form.numItems %}
+      <small class="pl-0.5 text-gray-500">{{ form.numItems.help_text|safe }}</small>
+      {% if form.numItems.errors %}<small class="pl-0.5 text-red-500">{{ form.numItems.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.type.label }}" class="custom_label">{{ form.type.label }}</label>
+    <div class="relative">
+      {% render_field form.type %}
+      <small class="pl-0.5 text-gray-500">{{ form.type.help_text|safe }}</small>
+      {% if form.type.errors %}<small class="pl-0.5 text-red-500">{{ form.type.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.artist.label }}" class="custom_label">{{ form.artist.label }}</label>
+    <div class="relative">
+      {% render_field form.artist %}
+      <small class="pl-0.5 text-gray-500">{{ form.artist.help_text|safe }}</small>
+      {% if form.artist.errors %}<small class="pl-0.5 text-red-500">{{ form.artist.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.author.label }}" class="custom_label">{{ form.author.label }}</label>
+    <div class="relative">
+      {% render_field form.author %}
+      <small class="pl-0.5 text-gray-500">{{ form.author.help_text|safe }}</small>
+      {% if form.author.errors %}<small class="pl-0.5 text-red-500">{{ form.author.errors }}</small>{% endif %}
+    </div>
+  </div>
+  <div class="col-span-6 sm:col-span-3">
+    <label for="{{ form.genres.label }}" class="custom_label">{{ form.genres.label }}</label>
+    <div class="relative">
+      {% render_field form.genres %}
+      <small class="pl-0.5 text-gray-500">{{ form.genres.help_text|safe }}</small>
+      {% if form.genres.errors %}<small class="pl-0.5 text-red-500">{{ form.genres.errors }}</small>{% endif %}
+    </div>
+  </div>
+</div>

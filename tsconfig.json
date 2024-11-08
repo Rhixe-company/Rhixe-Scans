@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "types/*"
+      ]
+    },
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "es2018",
+    "outDir": "./dist/webpack_bundles/js/",
+    "lib": [
+      "es6",
+      "es2018",
+      "dom",
+      "ES2019",
+      "ES2020"
+    ],
+    "sourceMap": true,
+    "declaration": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "allowJs": true,
+    "rootDir": "api/static",
+    "typeRoots": [
+      "node_modules/@types",
+      "api/static/scripts/js/types"
+    ],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+  },
+  "include": [
+    "api/static/scripts/js/**/*.ts*",
+    "api/static/scripts/js/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "lib"
+  ]
+}

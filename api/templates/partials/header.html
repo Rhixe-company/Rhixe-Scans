@@ -1,0 +1,413 @@
+{% load static i18n %}
+
+<header class="bg-themecolor sm:mb-3 lg:mb-[35px]">
+  <div class="flex h-[55px] items-center justify-between"
+       style="max-width: 1220px;
+              padding: 0px 20px;
+              margin: 0 auto">
+    <div class="flex items-center gap-x-6">
+      <a class="flex" href='{% url "index" %}'><span class="h-10 w-10 sm:h-12 sm:w-12">
+        <img alt="Rhixescans Logo"
+             width="0"
+             height="0"
+             class="object-cover"
+             style="color: transparent;
+                    width: 100%;
+                    height: auto;
+                    max-height: 50px"
+             src="{% static 'logos/logo.webp' %}" />
+      </span></a>
+      <ul class="m-0 hidden flex-row p-0 md:flex lg:mt-0 lg:space-x-3">
+        <li>
+          <a href='{% url "index" %}'><span class="block pb-0 pl-[8px] pr-[10px] pt-0 text-[13px] leading-[42px] tracking-wider text-white hover:bg-gray-900 hover:bg-opacity-40 hover:text-white">{% translate "Home" %}</span></a>
+        </li>
+        <li>
+          <a href='{% url "comics" %}'><span class="block pb-0 pl-[8px] pr-[10px] pt-0 text-[13px] leading-[42px] tracking-wider text-white hover:bg-gray-900 hover:bg-opacity-40 hover:text-white">{% translate "Comics" %}</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex w-full items-center gap-x-2 md:gap-x-[5px]">
+      <form class="flex w-full items-center justify-end">
+        <input type="text"
+               class="relative w-[95%] rounded-lg border-[1px] border-black bg-[#16151D] px-4 py-1 text-white outline-none sm:w-[55%] sm:py-2 md:w-[55%] lg:w-[40%]"
+               placeholder="Search" />
+        <svg class="absolute h-8 w-8 cursor-not-allowed pt-1 text-white"
+             viewBox="0 0 20 20"
+             fill="currentColor"
+             xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 6.5C10 8.433 8.433 10 6.5 10C4.567 10 3 8.433 3 6.5C3 4.567 4.567 3 6.5 3C8.433 3 10 4.567 10 6.5ZM9.30884 10.0159C8.53901 10.6318 7.56251 11 6.5 11C4.01472 11 2 8.98528 2 6.5C2 4.01472 4.01472 2 6.5 2C8.98528 2 11 4.01472 11 6.5C11 7.56251 10.6318 8.53901 10.0159 9.30884L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L9.30884 10.0159Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+          </path>
+        </svg>
+      </form>
+      {% if request.user.is_authenticated %}
+        {% include "partials/bookmarks.html" %}
+        <div class="hidden md:block">
+          <div class="text-right">
+            <div class="relative inline-block text-left">
+              <div class="pt-2">
+                <button id="userdropdownButton"
+                        data-dropdown-toggle="userdropdown"
+                        class="inline-flex w-full items-center justify-center"
+                        type="button">
+                  <div class="h-9 w-9 rounded-full sm:h-10 sm:w-10">
+                    {% for data in avatar %}
+                      {% if data.images %}
+                        <img width="36"
+                             height="36"
+                             class="h-full w-full rounded-full object-cover"
+                             src="{{ data.images.url }} "
+                             alt="{{ request.user.email }} photo"
+                             style="color: transparent" />
+                      {% else %}
+                        <img alt="profile"
+                             width="36"
+                             height="36"
+                             class="h-full w-full rounded-full object-cover"
+                             src="{% static 'logos/profile-placeholder.svg' %}"
+                             style="color: transparent" />
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </button>
+              </div>
+              <div id="userdropdown"
+                   class="absolute right-0 z-10 mt-2 hidden w-40 origin-top-right rounded-md border border-[#121212] bg-[#121212] p-4 shadow-lg ring-1 ring-black/5 focus:outline-none"
+                   style="--button-width: 40px">
+                <div class="space-y-0.5" aria-labelledby="userdropdownButton">
+                  <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                     href="{% url 'users:redirect' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         class="size-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    {% translate "Profile" %}
+                  </a>
+                  <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                     href='{% url "bookmarks:list" %}'>
+                    <svg class="size-6"
+                         xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                    </svg>
+                  {% translate "Bookmarks" %}</a>
+                </div>
+                <a href="{% url 'account_logout' %}"
+                   class="group flex w-full cursor-pointer items-center gap-x-2 rounded-md px-2 py-1.5 text-base text-[#FF4D49] hover:bg-themecolor">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke-width="1.5"
+                       stroke="currentColor"
+                       class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+                  </svg>
+                  {% translate "Log out" %}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="z-50 block md:hidden">
+          <div class="text-right">
+            <div class="relative z-10 inline-block text-left">
+              <div class="pt-2">
+                <button id="userdropdownButton1"
+                        data-dropdown-toggle="userdropdown1"
+                        class="inline-flex w-full items-center justify-center"
+                        type="button">
+                  <div class="h-9 w-9 rounded-full sm:h-10 sm:w-10">
+                    {% for data in avatar %}
+                      {% if data.images %}
+                        <img width="36"
+                             height="36"
+                             class="h-full w-full rounded-full object-cover"
+                             src="{{ data.images.url }} "
+                             alt="{{ request.user.email }} photo"
+                             style="color: transparent" />
+                      {% else %}
+                        <img alt="profile"
+                             width="36"
+                             height="36"
+                             class="h-full w-full rounded-full object-cover"
+                             src="{% static 'logos/profile-placeholder.svg' %}"
+                             style="color: transparent" />
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </button>
+              </div>
+              <div id="userdropdown1"
+                   class="absolute right-0 z-10 mt-2 hidden w-40 origin-top-right rounded-md border border-[#121212] bg-[#121212] p-4 shadow-lg ring-1 ring-black/5 focus:outline-none"
+                   style="--button-width: 40px">
+                <div class="space-y-0.5" aria-labelledby="userdropdownButton1">
+                  <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                     href="{% url 'users:redirect' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         class="size-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    {% translate "Profile" %}
+                  </a>
+                  <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                     href='{% url "bookmarks:list" %}'>
+                    <svg class="size-6"
+                         xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+                    </svg>
+                    {% translate "Bookmarks" %}
+                  </a>
+                </div>
+                <a href="{% url 'account_logout' %}"
+                   class="group flex w-full cursor-pointer items-center gap-x-2 rounded-md px-2 py-1.5 text-base text-[#FF4D49] hover:bg-themecolor">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                       fill="none"
+                       viewBox="0 0 24 24"
+                       stroke-width="1.5"
+                       stroke="currentColor"
+                       class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+                  </svg>
+                  {% translate "Log out" %}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% if request.user.is_superuser %}
+          <div class="z-50 hidden md:block">
+            <div class="text-right">
+              <div class="relative z-10 inline-block text-left">
+                <div class="pt-2">
+                  <button id="admindropdownButton"
+                          data-dropdown-toggle="admindropdown"
+                          class="ring-offset-background focus-visible:ring-ring flex h-10 w-20 items-center justify-center gap-0.5 whitespace-nowrap rounded-md bg-[#6F2598] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#5a1f78] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                    <svg class="lucide lucide-user-round w-3 h-3"
+                         width="24"
+                         height="24"
+                         fill="currentColor"
+                         viewBox="0 0 20 20"
+                         xmlns="http://www.w3.org/2000/svg"
+                         aria-hidden="true">
+                      <path clip-rule="evenodd" fill-rule="evenodd" d="M.99 5.24A2.25 2.25 0 013.25 3h13.5A2.25 2.25 0 0119 5.25l.01 9.5A2.25 2.25 0 0116.76 17H3.26A2.267 2.267 0 011 14.74l-.01-9.5zm8.26 9.52v-.625a.75.75 0 00-.75-.75H3.25a.75.75 0 00-.75.75v.615c0 .414.336.75.75.75h5.373a.75.75 0 00.627-.74zm1.5 0a.75.75 0 00.627.74h5.373a.75.75 0 00.75-.75v-.615a.75.75 0 00-.75-.75H11.5a.75.75 0 00-.75.75v.625zm6.75-3.63v-.625a.75.75 0 00-.75-.75H11.5a.75.75 0 00-.75.75v.625c0 .414.336.75.75.75h5.25a.75.75 0 00.75-.75zm-8.25 0v-.625a.75.75 0 00-.75-.75H3.25a.75.75 0 00-.75.75v.625c0 .414.336.75.75.75H8.5a.75.75 0 00.75-.75zM17.5 7.5v-.625a.75.75 0 00-.75-.75H11.5a.75.75 0 00-.75.75V7.5c0 .414.336.75.75.75h5.25a.75.75 0 00.75-.75zm-8.25 0v-.625a.75.75 0 00-.75-.75H3.25a.75.75 0 00-.75.75V7.5c0 .414.336.75.75.75H8.5a.75.75 0 00.75-.75z">
+                      </path>
+                    </svg>
+                    <p>{% translate "Crud" %}</p>
+                  </button>
+                </div>
+                <div id="admindropdown"
+                     class="absolute right-0 z-10 mt-2 hidden w-40 origin-top-right rounded-md border border-[#121212] bg-[#121212] p-4 shadow-lg ring-1 ring-black/5 focus:outline-none"
+                     style="--button-width: 40px">
+                  <div class="space-y-0.5" aria-labelledby="admindropdownButton">
+                    <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                       href="{% url 'users:admin' %}">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                      </svg>
+                      {% translate "Users" %}
+                    </a>
+                    <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                       href="{% url 'comics:admin' %}">
+                      <svg class="size-6"
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                      </svg>
+                      {% translate " Comics" %}
+                    </a>
+                    <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                       href="{% url 'chapters:admin' %}">
+                      <svg class="size-6"
+                           fill="currentColor"
+                           viewBox="0 0 20 20"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd">
+                        </path>
+                      </svg>
+                      {% translate "Chapters" %}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="z-50 mr-1"></div>
+        <div class="hidden md:block">
+          <a class="flex h-9 w-9 items-center justify-center rounded-full bg-[#121212] sm:h-10 sm:w-16 sm:rounded-lg"
+             href="{% url 'account_login' %}">
+            <button class="ring-offset-background focus-visible:ring-ring flex h-10 w-20 items-center justify-center gap-0.5 whitespace-nowrap rounded-md bg-[#6F2598] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#5a1f78] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                   width="24"
+                   height="24"
+                   viewBox="0 0 24 24"
+                   fill="none"
+                   stroke="currentColor"
+                   stroke-width="2"
+                   stroke-linecap="round"
+                   stroke-linejoin="round"
+                   class="lucide lucide-user-round h-3 w-3">
+                <circle cx="12" cy="8" r="5"></circle>
+                <path d="M20 21a8 8 0 0 0-16 0"></path>
+              </svg>
+              <p>{% translate "Login" %}</p>
+            </button>
+          </a>
+        </div>
+        <div class="z-50 block md:hidden">
+          <div class="text-right">
+            <a class="flex h-9 w-9 items-center justify-center rounded-full bg-[#121212] sm:h-10 sm:w-10"
+               href="{% url 'account_login' %}">
+              <div class="h-9 w-9 rounded-full sm:h-10 sm:w-10">
+                <img alt="profile"
+                     width="36"
+                     height="36"
+                     decoding="async"
+                     data-nimg="1"
+                     class="h-full w-full rounded-full object-cover"
+                     src="{% static 'logos/profile-placeholder.svg' %}"
+                     style="color: transparent" />
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endif %}
+      <div class="block md:hidden">
+        <button class="mt-[6px] text-white" id="mobile-menu-btn">
+          <svg class="h-8 w-8"
+               fill="currentColor"
+               stroke="currentColor"
+               viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <g class="">
+            <rect x="4" y="5" width="16" height="2" rx="0.2" ry="0.2"></rect>
+            <rect x="4" y="11" width="16" height="2" rx="0.2" ry="0.2"></rect>
+            <rect x="4" y="17" width="16" height="2" rx="0.2" ry="0.2"></rect>
+            </g>
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="inset-0 z-50 hidden md:hidden">
+        <div class="flex justify-end bg-[#1E1D20] bg-opacity-90 p-4">
+          <button class="text-white focus:outline-none" id="mobile-menu-btn-close">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="items-left flex h-full flex-col bg-[#1E1D20]">
+          <ul class="font-small m-0 mx-6 flex flex-col p-0 lg:mt-0 lg:flex-row lg:space-x-8">
+            <li>
+              <a class="inline-flex w-32 items-center px-2 hover:bg-black hover:bg-opacity-40 hover:text-white"
+                 href='{% url "index" %}'>
+                <svg class="size-6"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                </svg>
+                <span class="text-md block font-semibold text-white" style="padding: 8px">{% translate "Home" %}</span></a>
+            </li>
+            <li>
+              <a class="inline-flex w-32 items-center px-2 hover:bg-black hover:bg-opacity-40 hover:text-white"
+                 href='{% url "comics" %}'>
+                <svg class="size-6"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                </svg>
+                <span class="text-md block font-semibold text-white" style="padding: 8px">{% translate "Comics" %}</span></a>
+            </li>
+            {% if request.user.is_superuser %}
+              <li>
+                <button id="admindropdownButton1"
+                        data-dropdown-toggle="admindropdown1"
+                        type="button"
+                        class="inline-flex w-32 items-center px-2 hover:bg-black hover:bg-opacity-40 hover:text-white">
+                  <svg class="size-6"
+                       fill="currentColor"
+                       viewBox="0 0 20 20"
+                       xmlns="http://www.w3.org/2000/svg"
+                       aria-hidden="true">
+                    <path clip-rule="evenodd" fill-rule="evenodd" d="M.99 5.24A2.25 2.25 0 013.25 3h13.5A2.25 2.25 0 0119 5.25l.01 9.5A2.25 2.25 0 0116.76 17H3.26A2.267 2.267 0 011 14.74l-.01-9.5zm8.26 9.52v-.625a.75.75 0 00-.75-.75H3.25a.75.75 0 00-.75.75v.615c0 .414.336.75.75.75h5.373a.75.75 0 00.627-.74zm1.5 0a.75.75 0 00.627.74h5.373a.75.75 0 00.75-.75v-.615a.75.75 0 00-.75-.75H11.5a.75.75 0 00-.75.75v.625zm6.75-3.63v-.625a.75.75 0 00-.75-.75H11.5a.75.75 0 00-.75.75v.625c0 .414.336.75.75.75h5.25a.75.75 0 00.75-.75zm-8.25 0v-.625a.75.75 0 00-.75-.75H3.25a.75.75 0 00-.75.75v.625c0 .414.336.75.75.75H8.5a.75.75 0 00.75-.75zM17.5 7.5v-.625a.75.75 0 00-.75-.75H11.5a.75.75 0 00-.75.75V7.5c0 .414.336.75.75.75h5.25a.75.75 0 00.75-.75zm-8.25 0v-.625a.75.75 0 00-.75-.75H3.25a.75.75 0 00-.75.75V7.5c0 .414.336.75.75.75H8.5a.75.75 0 00.75-.75z">
+                    </path>
+                  </svg>
+                  {% translate "Crud" %}
+                </button>
+                <div id="admindropdown1"
+                     class="absolute right-0 z-10 mt-2 hidden w-40 origin-top-right rounded-md border border-[#121212] bg-[#121212] p-4 shadow-lg ring-1 ring-black/5 focus:outline-none"
+                     style="--button-width: 40px">
+                  <div class="space-y-0.5" aria-labelledby="admindropdownButton1">
+                    <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                       href="{% url 'users:admin' %}">
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                      </svg>
+                      {% translate "Users" %}
+                    </a>
+                    <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                       href="{% url 'comics:admin' %}">
+                      <svg class="size-6"
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                      </svg>
+                      {% translate " Comics" %}
+                    </a>
+                    <a class="text-new-white/70 group flex w-full items-center gap-x-2 rounded-md px-2 py-1.5 text-base"
+                       href="{% url 'chapters:admin' %}">
+                      <svg class="size-6"
+                           fill="currentColor"
+                           viewBox="0 0 20 20"
+                           xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd">
+                        </path>
+                      </svg>
+                      {% translate "Chapters" %}
+                    </a>
+                  </div>
+                </div>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

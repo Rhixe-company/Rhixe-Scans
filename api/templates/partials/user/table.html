@@ -1,0 +1,69 @@
+{% load django_tables2 static i18n %}
+
+<div class="progress">
+  <div class="indeterminate"></div>
+</div>
+<div x-data="{ checkAll : false }" class="mb-4">
+  <table {% render_attrs table.attrs %}
+         class="w-full text-left text-sm text-neutral-600 dark:text-neutral-300">
+    {% if table.show_header %}
+      <thead {{ table.attrs.thead.as_html }} class="border-b border-neutral-300 bg-neutral-50 text-sm text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-white">
+        <tr>
+          {% for column in table.columns %}
+            <th {{ column.attrs.th.as_html }} scope="col" class="p-4">
+              {% if forloop.first %}
+                <label for="checkAll"
+                       class="flex cursor-pointer items-center text-neutral-600 dark:text-neutral-300">
+                  <div class="relative flex items-center">
+                    <input type="checkbox"
+                           x-model="checkAll"
+                           id="checkAll"
+                           class="custom_checkbox_input" />
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         aria-hidden="true"
+                         stroke="currentColor"
+                         fill="none"
+                         stroke-width="4"
+                         class="invisible pointer-events-none absolute left-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 text-neutral-100 peer-checked:visible dark:text-black">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                </label>
+              {% else %}
+                <div>
+                  {% if column.orderable %}
+                    <a hx-get="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}"
+                       hx-target="#usercontainer"
+                       hx-push-url="true">{{ column.header }}</a>
+                  {% else %}
+                    {{ column.header }}
+                  {% endif %}
+                </div>
+              {% endif %}
+            </th>
+          {% endfor %}
+        </tr>
+      </thead>
+    {% endif %}
+    <tbody {{ table.attrs.tbody.as_html }} class="divide-y divide-neutral-300 dark:divide-neutral-700">
+      {% for row in table.paginated_rows %}
+        <tr {{ row.attrs.as_html }} class="even:bg-black/50 dark:even:bg-white/10">
+          {% for column, cell in row.items %}
+            <td {{ column.attrs.td.as_html }} class="p-4">
+              {% if column.localize == None %}
+                {{ cell }}
+              {% else %}
+                {% if column.localize %}
+                  {{ cell|localize }}
+                {% else %}
+                  {{ cell|unlocalize }}
+                {% endif %}
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

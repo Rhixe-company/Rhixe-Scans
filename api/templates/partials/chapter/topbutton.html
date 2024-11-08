@@ -1,0 +1,76 @@
+{% load static i18n %}
+
+<div class="flex w-full items-center justify-between gap-y-2 md:flex-row md:justify-between">
+  <div class="flex gap-2.5">
+    <div class="dropdown max-[350px]:w-[10rem] md:w-[13em]">
+      <button id="chaptersdropdownDefaultButton"
+              data-dropdown-toggle="chaptersdropdown"
+              class="px-3 py-2 dropdown-btn"
+              type="button">
+        <h2 class="text-[#9B9B9B] text-[13px] whitespace-nowrap max-[350px]:truncate">{{ chapter.name }}</h2>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="lucide lucide-chevron-down text-[#9B9B9B] w-4">
+          <path d="m6 9 6 6 6-6"></path>
+        </svg>
+      </button>
+      <!-- Dropdown menu -->
+      <div id="chaptersdropdown"
+           class=" hidden dropdown-content visible z-20 space-y-2 py-2 text-start opacity-100 ">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="chaptersdropdownDefaultButton">
+          {% for chap in chapter.comic.comicchapters.all %}
+            <li>
+              <a href="{{ chap.get_absolute_url }}">
+                <h2 class="mt-1 px-3 text-[13px] text-[#9B9B9B]">{{ chap.name }}</h2>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ml-1.5 flex items-center gap-x-3 self-end">
+    <button>
+      <div class="flex cursor-pointer items-center justify-center rounded-full bg-themecolor py-2 pl-3 pr-4">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="lucide lucide-chevron-left h-4 w-4 text-white">
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+        <h2 class="text-sm text-white">Prev</h2>
+      </div>
+    </button>
+    <button>
+      <div class="flex cursor-pointer items-center justify-center rounded-full bg-themecolor py-2 pl-4 pr-3">
+        <h2 class="text-sm text-white">Next</h2>
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="lucide lucide-chevron-right h-4 w-4 text-white">
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </div>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{% load static i18n %}
+
+{% block comicbookmark %}
+  <button class="w-full"
+          hx-post="{% url 'bookmarks:delete' comic.id %}"
+          hx-target="this"
+          hx-swap="outerHTML"
+          hx-confirm="Are you sure you want to remove {{ comic.title }} from your bookmarks">
+    <div class="ring-offset-background focus-visible:ring-ring flex h-10 w-full items-center justify-center whitespace-nowrap rounded-md bg-[#BE3329] px-4 py-2 text-[13px] font-medium text-white transition-colors duration-500 hover:cursor-pointer hover:bg-[#BE3329] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+      <img src="{% static 'svg/bookmark.svg' %}"
+           class="mr-0.5 size-[13px]"
+           alt="bookmark button" />
+      Bookmarked
+    </div>
+  </button>
+{% endblock comicbookmark %}

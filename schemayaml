@@ -1,0 +1,1025 @@
+openapi: 3.0.3
+info:
+    title: Rhixe Scans Api API
+    version: 1.0.0
+    description: Documentation of API endpoints of Rhixe Scans Api
+paths:
+    /api/chapters/:
+        get:
+            operationId: api_chapters_list
+            parameters:
+                - in: query
+                  name: name__icontains
+                  schema:
+                      type: string
+                - in: query
+                  name: name__iexact
+                  schema:
+                      type: string
+                - name: page
+                  required: false
+                  in: query
+                  description: A page number within the paginated result set.
+                  schema:
+                      type: integer
+                - in: query
+                  name: title__icontains
+                  schema:
+                      type: string
+                - in: query
+                  name: title__iexact
+                  schema:
+                      type: string
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PaginatedChapterList'
+                    description: ''
+        post:
+            operationId: api_chapters_create
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Chapter'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/Chapter'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/Chapter'
+                required: true
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '201':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Chapter'
+                    description: ''
+    /api/chapters/{chapter_id}/:
+        get:
+            operationId: api_chapters_retrieve
+            parameters:
+                - in: path
+                  name: chapter_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Chapter'
+                    description: ''
+        put:
+            operationId: api_chapters_update
+            parameters:
+                - in: path
+                  name: chapter_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Chapter'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/Chapter'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/Chapter'
+                required: true
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Chapter'
+                    description: ''
+        patch:
+            operationId: api_chapters_partial_update
+            parameters:
+                - in: path
+                  name: chapter_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/PatchedChapter'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/PatchedChapter'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/PatchedChapter'
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Chapter'
+                    description: ''
+        delete:
+            operationId: api_chapters_destroy
+            parameters:
+                - in: path
+                  name: chapter_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '204':
+                    description: No response body
+    /api/comics/:
+        get:
+            operationId: api_comics_list
+            parameters:
+                - name: page
+                  required: false
+                  in: query
+                  description: A page number within the paginated result set.
+                  schema:
+                      type: integer
+                - in: query
+                  name: rating
+                  schema:
+                      type: number
+                - in: query
+                  name: rating__gt
+                  schema:
+                      type: number
+                - in: query
+                  name: rating__lt
+                  schema:
+                      type: number
+                - in: query
+                  name: rating__range
+                  schema:
+                      type: array
+                      items:
+                          type: number
+                  description: Multiple values may be separated by commas.
+                  explode: false
+                  style: form
+                - in: query
+                  name: title__icontains
+                  schema:
+                      type: string
+                - in: query
+                  name: title__iexact
+                  schema:
+                      type: string
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PaginatedComicList'
+                    description: ''
+        post:
+            operationId: api_comics_create
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Comic'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/Comic'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/Comic'
+                required: true
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '201':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comic'
+                    description: ''
+    /api/comics/{comic_id}/:
+        get:
+            operationId: api_comics_retrieve
+            parameters:
+                - in: path
+                  name: comic_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comic'
+                    description: ''
+        put:
+            operationId: api_comics_update
+            parameters:
+                - in: path
+                  name: comic_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/Comic'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/Comic'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/Comic'
+                required: true
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comic'
+                    description: ''
+        patch:
+            operationId: api_comics_partial_update
+            parameters:
+                - in: path
+                  name: comic_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/PatchedComic'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/PatchedComic'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/PatchedComic'
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Comic'
+                    description: ''
+        delete:
+            operationId: api_comics_destroy
+            parameters:
+                - in: path
+                  name: comic_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '204':
+                    description: No response body
+    /api/comics/top/:
+        get:
+            operationId: api_comics_top_list
+            parameters:
+                - name: page
+                  required: false
+                  in: query
+                  description: A page number within the paginated result set.
+                  schema:
+                      type: integer
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PaginatedComicList'
+                    description: ''
+    /api/token/:
+        post:
+            operationId: api_token_create
+            description: |-
+                Takes a set of user credentials and returns an access and refresh JSON web
+                token pair to prove the authentication of those credentials.
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/TokenObtainPair'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/TokenObtainPair'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/TokenObtainPair'
+                required: true
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/TokenObtainPair'
+                    description: ''
+    /api/token/refresh/:
+        post:
+            operationId: api_token_refresh_create
+            description: |-
+                Takes a refresh type JSON web token and returns an access type JSON web
+                token if the refresh token is valid.
+            tags:
+                - api
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/TokenRefresh'
+                    application/x-www-form-urlencoded:
+                        schema:
+                            $ref: '#/components/schemas/TokenRefresh'
+                    multipart/form-data:
+                        schema:
+                            $ref: '#/components/schemas/TokenRefresh'
+                required: true
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/TokenRefresh'
+                    description: ''
+    /api/users/:
+        get:
+            operationId: api_users_list
+            parameters:
+                - in: query
+                  name: email__icontains
+                  schema:
+                      type: string
+                - name: page
+                  required: false
+                  in: query
+                  description: A page number within the paginated result set.
+                  schema:
+                      type: integer
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/PaginatedUserList'
+                    description: ''
+    /api/users/{user_id}/:
+        get:
+            operationId: api_users_retrieve
+            parameters:
+                - in: path
+                  name: user_id
+                  schema:
+                      type: integer
+                  required: true
+            tags:
+                - api
+            security:
+                - jwtAuth: []
+                - cookieAuth: []
+                - {}
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/User'
+                    description: ''
+components:
+    schemas:
+        Artist:
+            type: object
+            properties:
+                name:
+                    type: string
+                    maxLength: 200
+                id:
+                    type: integer
+                    readOnly: true
+            required:
+                - id
+                - name
+        Author:
+            type: object
+            properties:
+                name:
+                    type: string
+                    maxLength: 200
+                id:
+                    type: integer
+                    readOnly: true
+            required:
+                - id
+                - name
+        Chapter:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    readOnly: true
+                uuid:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                name:
+                    type: string
+                    maxLength: 500
+                title:
+                    type: string
+                    maxLength: 500
+                slug:
+                    type: string
+                    maxLength: 500
+                    pattern: ^[-a-zA-Z0-9_]+$
+                spider:
+                    type: string
+                    maxLength: 500
+                url:
+                    type: string
+                    format: uri
+                    maxLength: 500
+                numPages:
+                    type: integer
+                    maximum: 32767
+                    minimum: 0
+                    title: Total Pages
+                updated_at:
+                    type: string
+                    format: date-time
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChapterImageItem'
+                    readOnly: true
+                comicid:
+                    type: string
+                comictitle:
+                    type: string
+            required:
+                - comicid
+                - comictitle
+                - id
+                - items
+                - name
+                - numPages
+                - slug
+                - spider
+                - url
+                - uuid
+        ChapterImageItem:
+            type: object
+            properties:
+                image:
+                    type: string
+                    format: uri
+                    pattern: (?:ico|jpg|svg|jpeg|png|gif|bmp|webp|tiff|ttf|eot|woff|woff2)$
+                link:
+                    type: integer
+                chapter:
+                    type: integer
+                comic:
+                    type: integer
+            required:
+                - chapter
+                - comic
+                - image
+                - link
+        Comic:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    readOnly: true
+                uuid:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                title:
+                    type: string
+                    maxLength: 500
+                slug:
+                    type: string
+                    maxLength: 500
+                    pattern: ^[-a-zA-Z0-9_]+$
+                status:
+                    $ref: '#/components/schemas/StatusEnum'
+                description:
+                    type: string
+                rating:
+                    type: string
+                    format: decimal
+                    pattern: ^-?\d{0,9}(?:\.\d{0,1})?$
+                spider:
+                    type: string
+                    maxLength: 500
+                url:
+                    type: string
+                    format: uri
+                    maxLength: 500
+                serialization:
+                    type: string
+                    maxLength: 500
+                numChapters:
+                    type: integer
+                    maximum: 2147483647
+                    minimum: 0
+                    title: Total Chapters
+                updated_at:
+                    type: string
+                    format: date-time
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ComicImageItem'
+                    readOnly: true
+                type:
+                    allOf:
+                        - $ref: '#/components/schemas/Type'
+                    readOnly: true
+                author:
+                    allOf:
+                        - $ref: '#/components/schemas/Author'
+                    readOnly: true
+                artist:
+                    allOf:
+                        - $ref: '#/components/schemas/Artist'
+                    readOnly: true
+                user:
+                    allOf:
+                        - $ref: '#/components/schemas/User'
+                    readOnly: true
+                genres:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Genre'
+                    readOnly: true
+                followers:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UsersItem'
+                    readOnly: true
+                chapters:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Chapter'
+                    readOnly: true
+            required:
+                - artist
+                - author
+                - chapters
+                - description
+                - followers
+                - genres
+                - id
+                - items
+                - numChapters
+                - rating
+                - slug
+                - spider
+                - status
+                - title
+                - type
+                - url
+                - user
+                - uuid
+        ComicImageItem:
+            type: object
+            properties:
+                image:
+                    type: string
+                    format: uri
+                    pattern: (?:ico|jpg|svg|jpeg|png|gif|bmp|webp|tiff|ttf|eot|woff|woff2)$
+                link:
+                    type: integer
+                comic:
+                    type: integer
+            required:
+                - comic
+                - image
+                - link
+        Genre:
+            type: object
+            properties:
+                name:
+                    type: string
+                    maxLength: 200
+                id:
+                    type: integer
+                    readOnly: true
+            required:
+                - id
+                - name
+        NameEnum:
+            enum:
+                - Manga
+                - Manhwa
+                - Manhua
+            type: string
+            description: |-
+                * `Manga` - Manga
+                * `Manhwa` - Manhwa
+                * `Manhua` - Manhua
+        PaginatedChapterList:
+            type: object
+            required:
+                - count
+                - results
+            properties:
+                count:
+                    type: integer
+                    example: 123
+                next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                results:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Chapter'
+        PaginatedComicList:
+            type: object
+            required:
+                - count
+                - results
+            properties:
+                count:
+                    type: integer
+                    example: 123
+                next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                results:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Comic'
+        PaginatedUserList:
+            type: object
+            required:
+                - count
+                - results
+            properties:
+                count:
+                    type: integer
+                    example: 123
+                next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                results:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/User'
+        PatchedChapter:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    readOnly: true
+                uuid:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                name:
+                    type: string
+                    maxLength: 500
+                title:
+                    type: string
+                    maxLength: 500
+                slug:
+                    type: string
+                    maxLength: 500
+                    pattern: ^[-a-zA-Z0-9_]+$
+                spider:
+                    type: string
+                    maxLength: 500
+                url:
+                    type: string
+                    format: uri
+                    maxLength: 500
+                numPages:
+                    type: integer
+                    maximum: 32767
+                    minimum: 0
+                    title: Total Pages
+                updated_at:
+                    type: string
+                    format: date-time
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ChapterImageItem'
+                    readOnly: true
+                comicid:
+                    type: string
+                comictitle:
+                    type: string
+        PatchedComic:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    readOnly: true
+                uuid:
+                    type: string
+                    format: uuid
+                    readOnly: true
+                title:
+                    type: string
+                    maxLength: 500
+                slug:
+                    type: string
+                    maxLength: 500
+                    pattern: ^[-a-zA-Z0-9_]+$
+                status:
+                    $ref: '#/components/schemas/StatusEnum'
+                description:
+                    type: string
+                rating:
+                    type: string
+                    format: decimal
+                    pattern: ^-?\d{0,9}(?:\.\d{0,1})?$
+                spider:
+                    type: string
+                    maxLength: 500
+                url:
+                    type: string
+                    format: uri
+                    maxLength: 500
+                serialization:
+                    type: string
+                    maxLength: 500
+                numChapters:
+                    type: integer
+                    maximum: 2147483647
+                    minimum: 0
+                    title: Total Chapters
+                updated_at:
+                    type: string
+                    format: date-time
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ComicImageItem'
+                    readOnly: true
+                type:
+                    allOf:
+                        - $ref: '#/components/schemas/Type'
+                    readOnly: true
+                author:
+                    allOf:
+                        - $ref: '#/components/schemas/Author'
+                    readOnly: true
+                artist:
+                    allOf:
+                        - $ref: '#/components/schemas/Artist'
+                    readOnly: true
+                user:
+                    allOf:
+                        - $ref: '#/components/schemas/User'
+                    readOnly: true
+                genres:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Genre'
+                    readOnly: true
+                followers:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UsersItem'
+                    readOnly: true
+                chapters:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Chapter'
+                    readOnly: true
+        StatusEnum:
+            enum:
+                - Completed
+                - Ongoing
+                - Hiatus
+                - Dropped
+                - Season End
+                - Coming Soon
+            type: string
+            description: |-
+                * `Completed` - Completed
+                * `Ongoing` - Ongoing
+                * `Hiatus` - Hiatus
+                * `Dropped` - Dropped
+                * `Season End` - Season End
+                * `Coming Soon` - Coming Soon
+        TokenObtainPair:
+            type: object
+            properties:
+                email:
+                    type: string
+                    writeOnly: true
+                password:
+                    type: string
+                    writeOnly: true
+                access:
+                    type: string
+                    readOnly: true
+                refresh:
+                    type: string
+                    readOnly: true
+            required:
+                - access
+                - email
+                - password
+                - refresh
+        TokenRefresh:
+            type: object
+            properties:
+                access:
+                    type: string
+                    readOnly: true
+                refresh:
+                    type: string
+                    writeOnly: true
+            required:
+                - access
+                - refresh
+        Type:
+            type: object
+            properties:
+                name:
+                    $ref: '#/components/schemas/NameEnum'
+                id:
+                    type: integer
+                    readOnly: true
+            required:
+                - id
+                - name
+        User:
+            type: object
+            properties:
+                username:
+                    type: string
+                    title: User Name
+                    maxLength: 255
+                email:
+                    type: string
+                    format: email
+                    title: Email address
+                    maxLength: 254
+                first_name:
+                    type: string
+                    title: First Name of User
+                    maxLength: 255
+                last_name:
+                    type: string
+                    title: Last Name of User
+                    maxLength: 255
+                images:
+                    type: string
+                    format: uri
+                    pattern: (?:ico|jpg|svg|jpeg|png|gif|bmp|webp|tiff|ttf|eot|woff|woff2)$
+                is_staff:
+                    type: boolean
+            required:
+                - email
+                - username
+        UsersItem:
+            type: object
+            properties:
+                user:
+                    allOf:
+                        - $ref: '#/components/schemas/User'
+                    readOnly: true
+                comic:
+                    type: integer
+                order:
+                    type: integer
+                    maximum: 32767
+                    minimum: 0
+            required:
+                - comic
+                - order
+                - user
+    securitySchemes:
+        cookieAuth:
+            type: apiKey
+            in: cookie
+            name: sessionid
+        jwtAuth:
+            type: http
+            scheme: bearer
+            bearerFormat: JWT

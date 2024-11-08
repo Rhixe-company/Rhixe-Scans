@@ -1,0 +1,8 @@
+{% load static i18n %}
+
+<div class="flex w-max items-center gap-2">
+  <div class="flex flex-col">
+  <a href="{{ record.get_absolute_url }}"><span class="text-neutral-900 dark:text-white">{{ record.name }}</span>
+  <span class="text-sm text-neutral-600 opacity-85 dark:text-neutral-300">{{ record.title }}</span></a>
+</div>
+</div>

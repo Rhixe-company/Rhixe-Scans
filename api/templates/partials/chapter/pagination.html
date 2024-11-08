@@ -1,0 +1,174 @@
+{% load django_tables2 static i18n %}
+
+{% if table.page and table.paginator.num_pages > 1 %}
+  <nav class="flex-column flex flex-wrap items-center justify-between space-x-4 space-y-4 pb-4 pt-4"
+       aria-label="Table navigation">
+    <div class="inline-flex items-center mb-4 sm:mb-0">
+      {% if table.page.has_previous %}
+        <button hx-get="{% querystring table.prefixed_page_field=1 %}"
+                hx-target="#chaptercontainer"
+                hx-push-url="true"
+                type="button"
+                class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+          <svg class="w-7 h-7"
+               fill="currentColor"
+               viewBox="0 0 20 20"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd">
+            </path>
+          </svg>
+          <div class="sr-only">{% translate "first" %}</div>
+        </button>
+      {% else %}
+        <button disabled
+                type="button"
+                class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+          <svg class="w-7 h-7"
+               fill="currentColor"
+               viewBox="0 0 20 20"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd">
+            </path>
+          </svg>
+          <div class="sr-only">{% translate "first" %}</div>
+        </button>
+      {% endif %}
+      {% if table.page.has_next %}
+        <button hx-get="{% querystring table.prefixed_page_field=table.paginator.num_pages %}"
+                hx-target="#chaptercontainer"
+                hx-push-url="true"
+                type="button"
+                class="inline-flex justify-center p-1 mr-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+          <svg class="w-7 h-7"
+               fill="currentColor"
+               viewBox="0 0 20 20"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd">
+            </path>
+          </svg>
+          <div class="sr-only">{% translate "last" %}</div>
+        </button>
+      {% else %}
+        <button disabled
+                type="button"
+                class="inline-flex justify-center p-1 mr-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+          <svg class="w-7 h-7"
+               fill="currentColor"
+               viewBox="0 0 20 20"
+               xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd">
+            </path>
+          </svg>
+          <div class="sr-only">{% translate "last" %}</div>
+        </button>
+      {% endif %}
+      <!-- Help text -->
+      <span class="text-sm text-gray-700 dark:text-gray-400">
+        {% translate "Showing" %}
+        <span class="font-semibold text-gray-900 dark:text-white">{{ table.page.number }}</span>
+        {% translate "to" %}
+        <span class="font-semibold text-gray-900 dark:text-white">{{ table.paginator.num_pages }}</span> {% translate "of" %} <span class="font-semibold text-gray-900 dark:text-white">{{ table.rows|length }}</span> {% translate "Entries" %}
+      </span>
+    </div>
+    <ul class="inline-flex flex-shrink-0 items-center gap-2 text-sm font-medium">
+      {% if table.page.has_previous %}
+        <li>
+          <button type="button"
+                  hx-get="{% querystring table.prefixed_page_field=table.page.previous_page_number %}"
+                  hx-target="#chaptercontainer"
+                  hx-push-url="true"
+                  class="flex items-center rounded-md p-1 text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                  aria-label="previous page">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+                 aria-hidden="true"
+                 class="size-6">
+              <path fill-rule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+            </svg>
+            <div class="sr-only">{% trans "Previous" %}</div>
+          </button>
+        </li>
+      {% else %}
+        <li>
+          <button type="button"
+                  disabled
+                  class="flex items-center rounded-md p-1 text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                  aria-label="previous page">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+                 aria-hidden="true"
+                 class="size-6">
+              <path fill-rule="evenodd" d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+            </svg>
+            <div class="sr-only">{% trans "Previous" %}</div>
+          </button>
+        </li>
+      {% endif %}
+      {% for page_number in table.paginator.get_elided_page_range %}
+        {% if page_number == table.paginator.ELLIPSIS %}
+          <li>
+            <button type="button"
+                    class="flex size-6 items-center justify-center rounded-md p-1 text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                    aria-label="page {{ page_number }}">{{ page_number }}</button>
+          </li>
+        {% else %}
+          <li>
+            {% if page_number == table.page.number %}
+              <button type="button"
+                      hx-get="{% querystring table.prefixed_page_field=page_number %}"
+                      hx-target="#chaptercontainer"
+                      hx-push-url="true"
+                      class="flex size-6 items-center justify-center rounded-md bg-black p-1 font-bold text-neutral-100 dark:bg-white dark:text-black"
+                      aria-current="page"
+                      aria-label="page {{ page_number }}">{{ page_number }}</button>
+            {% else %}
+              <button type="button"
+                      hx-get="{% querystring table.prefixed_page_field=page_number %}"
+                      hx-target="#chaptercontainer"
+                      hx-push-url="true"
+                      class="flex size-6 items-center justify-center rounded-md p-1 text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                      aria-label="page {{ page_number }}">{{ page_number }}</button>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+      {% if table.page.has_next %}
+        <li>
+          <button hx-get="{% querystring table.prefixed_page_field=table.page.next_page_number %}"
+                  hx-target="#chaptercontainer"
+                  hx-push-url="true"
+                  type="button"
+                  class="flex items-center rounded-md p-1 text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                  aria-label="next page">
+            <div class="sr-only">{% trans "Next" %}</div>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+                 aria-hidden="true"
+                 class="size-6">
+              <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </li>
+      {% else %}
+        <li>
+          <button disabled
+                  type="button"
+                  class="flex items-center rounded-md p-1 text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white"
+                  aria-label="next page">
+            <div class="sr-only">{% trans "Next" %}</div>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+                 aria-hidden="true"
+                 class="size-6">
+              <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

@@ -1,0 +1,16 @@
+{% extends "comic/base.html" %}
+
+{% comment %} djlint:on {% endcomment %}
+{% load static i18n %}
+
+{% block head_title %}
+  {% translate 'Comics Admin' %}
+{% endblock head_title %}
+{% block content %}
+  <div class="min[925px]:p-0 relative max-[882px]:p-4 max-[786px]:p-0 lg:my-0">
+    <div class="flex flex-col">
+      {% include "partials/comic/hero.html" %}
+      {% include "partials/comic/body.html" %}
+    </div>
+  </div>
+{% endblock content %}

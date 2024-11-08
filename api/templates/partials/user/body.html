@@ -1,0 +1,14 @@
+{% load render_table from django_tables2 %}
+
+{% block userslist %}
+  <div id='usercontainer'
+       hx-trigger="user_added    from:body"
+       hx-get='{% url "users:admin" %}'
+       hx-target="#usercontainer"
+       hx-indicator=".progress"
+       hx-push-url="true"
+       class="inline-flex w-full flex-col overflow-hidden overflow-x-auto rounded-md border border-neutral-300 dark:border-neutral-700">
+    {% render_table table "partials/user/table.html" %}
+    {% include "partials/user/pagination.html" %}
+  </div>
+{% endblock userslist %}

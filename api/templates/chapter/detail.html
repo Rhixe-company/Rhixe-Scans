@@ -1,0 +1,18 @@
+{% extends "pages/base.html" %}
+
+{% load static i18n %}
+
+{% block head_title %}
+  {% trans chapter.name %}
+{% endblock head_title %}
+{% block main %}
+  <div class="w-[100%]">
+    {% block content %}
+      <div class="flex flex-col items-center space-y-2 pt-6 px-5 text-center">
+        {% include "partials/chapter/navbar.html" %}
+        {% include "partials/chapter/items.html" %}
+        {% include "partials/chapter/footer.html" %}
+      </div>
+    {% endblock content %}
+  </div>
+{% endblock main %}

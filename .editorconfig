@@ -1,0 +1,38 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Tab indentation
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+max_line_length = 200
+
+# The indent size used in the `package.json` file cannot be changed
+# https://github.com/npm/npm/pull/3180#issuecomment-16336516
+[{.travis.yml,npm-shrinkwrap.json,package.json}]
+indent_style = space
+indent_size = 4
+
+[*.{py,rst,ini}]
+indent_style = space
+indent_size = 4
+
+[*.{html,css,scss,json,yml,xml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab
+
+[default.conf]
+indent_style = space
+indent_size = 2

@@ -1,0 +1,10 @@
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fontsource/fira-sans';
+import '@popperjs/core';
+import 'flowbite';
+import 'jquery';
+import 'axios';
+import 'highlight.js/styles/devibeans.css';
+import 'ckeditor5/ckeditor5.css';
+import 'ckeditor5-premium-features/ckeditor5-premium-features.css';
+import './menu';

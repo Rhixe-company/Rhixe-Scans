@@ -1,0 +1,21 @@
+{% load static i18n %}
+
+<div class="flex w-max items-center gap-2">
+  <a href="{{ record.get_absolute_url }}">
+    {% for img in record.comicitems.all|slice:"0:1" %}
+      {% if img.image %}
+        <img class="size-10 rounded-full object-cover"
+             src="{{ img.image.url }}"
+             alt="{{ record.title }} avatar" />
+      {% else %}
+        <img class="size-10 rounded-full object-cover"
+             src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp"
+             alt="{{ record.title }} avatar" />
+      {% endif %}
+    {% endfor %}
+  </a>
+  <div class="flex flex-col">
+    <a href="{{ record.get_absolute_url }}"><span class="text-neutral-900 dark:text-white">{{ record.title }}</span></a>
+    <span class="text-sm text-neutral-600 opacity-85 dark:text-neutral-300">{{ record.status }}</span>
+  </div>
+</div>

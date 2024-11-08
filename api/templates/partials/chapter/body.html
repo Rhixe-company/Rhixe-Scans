@@ -1,0 +1,14 @@
+{% load render_table from django_tables2 %}
+
+{% block chapterslist %}
+  <div id='chaptercontainer'
+       hx-trigger="chapter_added    from:body"
+       hx-get='{% url "chapters:admin" %}'
+       hx-target="#chaptercontainer"
+       hx-indicator=".progress"
+       hx-push-url="true"
+       class="inline-flex w-full flex-col overflow-hidden overflow-x-auto rounded-md border border-neutral-300 dark:border-neutral-700">
+    {% render_table table "partials/chapter/table.html" %}
+    {% include "partials/chapter/pagination.html" %}
+  </div>
+{% endblock chapterslist %}

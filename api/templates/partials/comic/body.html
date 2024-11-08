@@ -1,0 +1,14 @@
+{% load render_table from django_tables2 %}
+
+{% block comicslist %}
+  <div id='comiccontainer'
+       hx-trigger="comic_added    from:body"
+       hx-get='{% url "comics:admin" %}'
+       hx-target="#comiccontainer"
+       hx-indicator=".progress"
+       hx-push-url="false"
+       class="inline-flex w-full flex-col overflow-hidden overflow-x-auto rounded-md border border-neutral-300 dark:border-neutral-700">
+    {% render_table table "partials/comic/table.html" %}
+    {% include "partials/comic/pagination.html" %}
+  </div>
+{% endblock comicslist %}

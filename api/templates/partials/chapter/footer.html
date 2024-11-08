@@ -1,0 +1,16 @@
+{% load static %}
+
+{% include "partials/chapter/downbutton.html" %}
+<div class="space-y-4">
+  <div class="flex w-full items-center justify-center gap-x-2 bg-[#222222] px-5 py-4 md:text-start">
+    <h2 class="text-[13px] text-[#999999]">
+      Read the latest manga<span class="px-1 font-bold">{{ chapter.name }}</span>at
+      <span class="font-bold">Rhixe Scans</span>. Manga<span class="pl-1 font-bold">{{ chapter.comic.title }}</span>
+      is always updated at <span class="font-bold">{{ chapter.updated_at }}</span>. Dont forget to read the other
+      manga updates. A list of manga collections<span class="pl-1 font-bold">Rhixe Scans</span> is in the Manga
+      List menu.
+    </h2>
+  </div>
+  {% include "partials/chapter/rseries.html" %}
+  {% include "partials/chapter/comments.html" %}
+</div>

@@ -1,0 +1,75 @@
+{% extends "users/base.html" %}
+
+{% load crispy_forms_tags widget_tweaks static i18n %}
+
+{% block head_title %}
+  {% translate "User:" %} {% translate user.email %}
+{% endblock head_title %}
+{% block content %}
+  <div class="flex h-full justify-center md:mt-7">
+    <div class="relative h-full w-full max-w-2xl px-4 md:h-auto">
+      <div class="relative rounded-lg bg-white shadow dark:bg-gray-900">
+        <div class="flex items-start justify-between rounded-t border-b p-5 dark:border-gray-700">
+          <h3 class="text-xl font-semibold dark:text-white">{% translate "Edit user" %} {% translate user.username %}</h3>
+        </div>
+        <div class="space-y-6 p-6">
+          <form method="post"
+                enctype="multipart/form-data"
+                action="{% url 'users:update' request.user.pk %}">
+            {% csrf_token %}
+            {% for hidden_field in form.hidden_fields %}
+              {{ hidden_field.errors }}
+              {{ hidden_field }}
+            {% endfor %}
+            {{ form.non_form_errors }}
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="form.email.label" class="custom_label">{{ form.email.label }}</label>
+                {% render_field form.email %}
+                <small class="pl-0.5 text-gray-500">{{ form.email.help_text|safe }}</small>
+                {% if form.email.errors %}<small class="pl-0.5 text-red-500">Error: {{ form.email.errors }}</small>{% endif %}
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="form.username.label" class="custom_label">{{ form.username.label }}</label>
+                {% render_field form.username %}
+                <small class="pl-0.5 text-gray-500">{{ form.username.help_text|safe }}</small>
+                {% if form.username.errors %}<small class="pl-0.5 text-red-500">Error: {{ form.username.errors }}</small>{% endif %}
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="form.first_name.label" class="custom_label">{{ form.first_name.label }}</label>
+                {% render_field form.first_name %}
+                <small class="pl-0.5 text-gray-500">{{ form.first_name.help_text|safe }}</small>
+                {% if form.first_name.errors %}
+                  <small class="pl-0.5 text-red-500">Error: {{ form.first_name.errors }}</small>
+                {% endif %}
+              </div>
+              <div class="col-span-6 sm:col-span-3">
+                <label for="form.last_name.label" class="custom_label">{{ form.last_name.label }}</label>
+                {% render_field form.last_name %}
+                <small class="pl-0.5 text-gray-500">{{ form.last_name.help_text|safe }}</small>
+                {% if form.last_name.errors %}
+                  <small class="pl-0.5 text-red-500">Error: {{ form.last_name.errors }}</small>
+                {% endif %}
+              </div>
+              <div class="col-span-6">
+                <label for="form.images.label" class="custom_label">{{ form.images.label }}</label>
+                {% render_field form.images %}
+                <small class="pl-0.5 text-gray-500">{{ form.images.help_text|safe }}</small>
+                {% if form.images.errors %}<small class="pl-0.5 text-red-500">Error: {{ form.images.errors }}</small>{% endif %}
+              </div>
+            </div>
+            <div class="items-center rounded-b border-t border-gray-200 p-6 dark:border-gray-700">
+              <button class="rounded-lg bg-primary-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                      type="submit">{% translate "Update" %}</button>
+            </div>
+          </form>
+          <div class="mt-4 text-center text-xs text-gray-400">
+            {% translate "Is Your Info Correct?" %}
+            <a class="text-xs font-semibold text-white hover:underline"
+               href="{% url 'users:redirect' %}">{% translate '&laquo Go Back' %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

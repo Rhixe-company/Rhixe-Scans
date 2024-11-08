@@ -1,0 +1,16 @@
+{% extends "users/base.html" %}
+
+{% comment %} djlint:on {% endcomment %}
+{% load static i18n %}
+
+{% block head_title %}
+  {% translate 'Users Admin' %}
+{% endblock head_title %}
+{% block content %}
+  <div class="min[925px]:p-0 relative max-[882px]:p-4 max-[786px]:p-0 lg:my-0">
+    <div class="flex flex-col">
+      {% include "partials/user/hero.html" %}
+      {% include "partials/user/body.html" %}
+    </div>
+  </div>
+{% endblock content %}

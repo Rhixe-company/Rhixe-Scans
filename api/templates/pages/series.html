@@ -1,0 +1,16 @@
+{% extends "pages/base.html" %}
+
+{% load static i18n %}
+
+{% block head_title %}
+  {% trans "Series" %}
+{% endblock head_title %}
+{% block content %}
+  <div class="mb-2 w-full bg-[#222222] min-[768px]:w-[100%] min-[880px]:w-[98%] min-[912px]:w-[98%] lg:w-[100%]">
+    <div class="font-500 relative mt-5 flex justify-between border-b-[1px] border-[#312f40] bg-[#222222] p-2 px-[15px] py-[8px] align-baseline sm:mt-0">
+      <h3 class="m-0 text-[15px] font-semibold leading-5 text-white">Series list</h3>
+    </div>
+    {% include "partials/pages/series/hero.html" %}
+    {% include "partials/pages/series/grid.html" %}
+  </div>
+{% endblock content %}
